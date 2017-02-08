@@ -8,7 +8,7 @@ RUN apt-get update -qq && apt-get install -y \
 RUN service postgresql start && su -l postgres -c "createuser -s `whoami`"
 
 RUN curl --silent -L \
-  https://github.com/postgis/postgis/archive/d977a1e486494769eb7e69a7359482c406d2785a.zip | \
+  https://github.com/postgis/postgis/archive/d977a1e486494769eb7e69a7359482c406d2785a.tar.gz | \
   tar xz && cd postgis-svn-trunk && \
   ./autogen.sh && \
   ./configure --without-address-standardizer --without-raster --without-topology && make && make install && \
