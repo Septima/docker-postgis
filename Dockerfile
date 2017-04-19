@@ -9,8 +9,8 @@ RUN apt-get update -qq && apt-get install -y \
 RUN service postgresql start && su -l postgres -c "createuser -s `whoami`"
 
 RUN curl --silent -L \
-  https://github.com/postgis/postgis/archive/d977a1e486494769eb7e69a7359482c406d2785a.tar.gz | \
-  tar xz && cd postgis-d977a1e486494769eb7e69a7359482c406d2785a && \
+  https://github.com/postgis/postgis/archive/19a4903f10af2248553c83c27743c830b82f9ab5.tar.gz | \
+  tar xz && cd postgis-19a4903f10af2248553c83c27743c830b82f9ab5 && \
   ./autogen.sh && \
   ./configure --without-address-standardizer --without-raster --without-topology && make && make install && \
-  cd .. && rm postgis-d977a1e486494769eb7e69a7359482c406d2785a -rf
+  cd .. && rm postgis-19a4903f10af2248553c83c27743c830b82f9ab5 -rf
